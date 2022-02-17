@@ -21,7 +21,9 @@ START_STRING_PRIVATE = """ Hi {}, I'm Member Sticker Bot.
 \n All Member count doesn't return a sticker, so I will send a Thank you message for the count which have no sticker,
 This message will be deleted after 10 second. \n
 Nothing to Do here !! 😕
-**ADD ME TO A GROUP THEN TRIGGER ME**
+
+Made By @Mibu_Techy
+**ADD ME TO A GROUP THEN MAKE ME ADMIN**
 """
 
 START_STRING_GROUP = """ **I need Admin rights to Send sticker in {}**
@@ -32,11 +34,11 @@ START_STRING_GROUP = """ **I need Admin rights to Send sticker in {}**
 
 ABOUT = """
 ● **BOT:** `Member Sticker BOT` 
-● **AUTHOR :** [bughunter0](https://t.me/bughunter0) 
+● **AUTHOR :** [Mibu Techy](https://t.me/Mibu_Techy)
 ● **SERVER :** `Heroku` 
 ● **LIBRARY :** `Pyrogram` 
 ● **LANGUAGE :** `Python 3.9` 
-● **SOURCE :** [BugHunterBots](https://t.me/BugHunterBots/93) 
+● **SOURCE :** [Mibu Techy Bots](https://github.com/MibuTechy/member-sticker-bot) 
 
 """
 HELP = """
@@ -48,12 +50,12 @@ HELP = """
 
 CHANNEL_BUTTON = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('↗ Join Here ↗', url='https://t.me/BughunterBots')
+        InlineKeyboardButton('↗ Join Here ↗', url='https://t.me/allmoviesbymibutechy2)
         ]]
     )
 ADDME_BUTTON = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('↗ ADD ME TO A GROUP ↗', url="t.me/member_sticker_bot?startgroup=true")
+        InlineKeyboardButton('↗ ADD ME TO A GROUP ↗', url="t.me/allmoviesstcrwelcmbot?startgroup=true")
         ]]
     )
 START_BUTTON = InlineKeyboardMarkup(
@@ -62,9 +64,9 @@ START_BUTTON = InlineKeyboardMarkup(
         InlineKeyboardButton('HELP',callback_data='cbhelp')
         ],
         [
-        InlineKeyboardButton('↗ Join Here ↗', url='https://t.me/BughunterBots'),
+        InlineKeyboardButton('↗ Join Here ↗', url='https://t.me/allmoviesbymibutechy2),
         ],
-        [InlineKeyboardButton('↗ ADD ME TO A GROUP ↗', url="t.me/member_sticker_bot?startgroup=true")
+        [InlineKeyboardButton('↗ ADD ME TO A GROUP ↗', url="t.me/allmoviesstcrwelcmbot?startgroup=true")
         ]]
         
     )
@@ -96,7 +98,7 @@ async def cb_data(bot, update):
         )
 
 
-@bughunter0.on_message(filters.command(["start"]) & filters.private)
+@Mibu_Techy.on_message(filters.command(["start"]) & filters.private)
 async def start_private(bot, update):
     text = START_STRING_PRIVATE.format(update.from_user.mention)
     reply_markup = START_BUTTON
@@ -107,7 +109,7 @@ async def start_private(bot, update):
         quote=True
     )
 
-@bughunter0.on_message((filters.command(["start"]) & filters.group) | filters.regex("/start@member_sticker_bot"))
+@Mibu_Techy.on_message((filters.command(["start"]) & filters.group) | filters.regex("/start@member_sticker_bot"))
 async def start_group(bot, update):
     text = START_STRING_GROUP.format(update.chat.title)
     reply_markup = CHANNEL_BUTTON
